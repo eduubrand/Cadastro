@@ -1,19 +1,30 @@
-package com.CidadeDeCrateus.Cadastro;
+package com.CidadeDeCrateus.Cadastro.Demolay;
 
+import com.CidadeDeCrateus.Cadastro.Gestao.GestaoModel;
 import jakarta.persistence.*;
+
 
 //Entity transforma a classe em uma entidade do BD
 @Entity
 @Table(name = "tb_cadastro")
+
 public class DemolayModel {
 
     //Proximo atributo é o ID
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String nome;
+
     private String identidade;
+
     private int idade;
+
+    @ManyToOne
+    @JoinColumn(name = "gestao_id")
+    private GestaoModel gestao;
+
 
     public DemolayModel(){
 
